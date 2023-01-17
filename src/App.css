@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+#left-bar {
+  transition: all 0.5s;
+  left: -100px;
+  width: 103px;
+  height: 100vh;
+}
+
+#left-bar:hover {
+  left: 0px;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: 500;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: 300;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: 400;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-Thin.ttf') format('truetype');
+  font-weight: 200;
+  font-style: 200;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: 600;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('assets/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
+  font-weight: 900;
+  font-style: 900;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
