@@ -30,9 +30,34 @@
 }
 
 @keyframes spinjump {
-    0%, 50%, 100% {
+    0%, 12%, 50%, 100% {
         transform: translateY(0px) rotate(90deg);
         color: inherit;
+    }
+    1% {
+        transform: translateX(-3px);
+    }
+    2% {
+        transform: translateX(3px);
+    }
+    3% {
+        transform: translateX(-3px);
+    }
+    4% {
+        transform: translateX(3px);
+    }
+    5% {
+        transform: translateX(2px);
+        
+    }
+    7% {
+        transform: translateX(-2px);
+    }
+    9% {
+        transform: translateX(2px);
+    }
+    11% {
+        transform: translateX(-1px);
     }
     25% {
         transform: translateY(-15px) rotate(-190deg);
@@ -51,6 +76,3 @@
     animation-iteration-count: infinite;
 }
 
-.spinner-jumper:hover {
-    animation-name: spinjump;
-}

@@ -28,7 +28,7 @@ const getPalette = (mode: 'light' | 'dark') => ({
                     secondary: grey[500],
                 },
         }),
-    },
+    }
 })
 
 
