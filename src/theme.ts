@@ -1,8 +1,9 @@
+import { createTheme } from "@mui/material"
 import { amber, grey, deepOrange } from "@mui/material/colors"
 
 const getPalette = (mode: 'light' | 'dark') => ({
     palette: {
-        mode,
+        // mode,
         ...(mode === 'light' ? {
                 // palette values for light mode
                 primary: amber,
@@ -31,5 +32,38 @@ const getPalette = (mode: 'light' | 'dark') => ({
     }
 })
 
+const getTheme = (mode: 'light' | 'dark') => {
+    return createTheme({
+        ...getPalette(mode),
+        typography: {
+            fontFamily: 'Roboto Mono',
+            h4: {
+                fontWeight: 500,
+                fontSize: 30,
+            },
+            h5: {
+                fontWeight: 500,
+                fontSize: 25,
+            },
+            h6: {
+                fontWeight: 500,
+                fontSize: 20,
+            },
+            subtitle1: {
+                fontWeight: 300,
+                fontSize: 15,
+            },
+            subtitle2: {
+                fontWeight: 200,
+                fontSize: 12,
+            },
+            body1: {
+                fontWeight: 400,
+                fontSize: 15,
+            }
+        }
+    })
+}
 
-export {getPalette}
+
+export default getTheme
