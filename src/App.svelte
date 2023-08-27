@@ -31,49 +31,47 @@
             <button on:click={() => viewedSection = 'skills'}> skills </button>
             <button on:click={() => viewedSection = 'experience'}> experience </button>
         </div>
-        <!-- <Expandable title='' expanded={viewedSection !== undefined} > -->
-            {#if viewedSection === 'skills'}
-                <div id='skills' transition:fade>
-                    <div style='display:flex; justify-content:center' >
-                        <IconGallery tools={shuffle(allTools)} />
-                    </div>
-            
-                    <div style='display:flex; justify-content:center' >
-                        <button on:click={() => toolsFilterStore.set(frontendTechnologies.map(v => v.name))} > FE </button>
-                        <button on:click={() => toolsFilterStore.set(backendTechnologies.map(v => v.name))} > BE </button>
-                        <button on:click={() => toolsFilterStore.set(languages.map(v => v.name))} > Languages </button>
-                        <button on:click={() => toolsFilterStore.set(tools.map(v => v.name))} > Tools </button>
-                        <button on:click={() => toolsFilterStore.set(allTools.map(v => v.name))} > reset </button>
-                    </div>
+        {#if viewedSection === 'skills'}
+            <div id='skills' transition:fade>
+                <div style='display:flex; justify-content:center' >
+                    <IconGallery tools={shuffle(allTools)} />
                 </div>
-            {:else if viewedSection === 'experience'}
-            <div id='experience' transition:fade> 
-                <div class='section-container'>
-                    {#each professionalExperience as xp}
-                        <button on:click={() => {
-                            if (selectedXP?.companyName === xp.companyName) {
-                                selectedXP = undefined
-                            }
-                            else {
-                                selectedXP = xp
-                                const el = document.querySelector('#expanded-xp')
-                                el.scrollIntoView({behavior: 'smooth'})
-                            }
-                        }}>
-                            {xp.companyName} 
-                        </button>
-                    {/each}
-                </div>
-                <div id='expanded-xp'>
-                    {#if selectedXP}
-                        <div transition:fade>
-                            <Experiece xp={selectedXP} />
-                        </div>
-                    {/if}
+        
+                <div style='display:flex; justify-content:center' >
+                    <button on:click={() => toolsFilterStore.set(frontendTechnologies.map(v => v.name))} > FE </button>
+                    <button on:click={() => toolsFilterStore.set(backendTechnologies.map(v => v.name))} > BE </button>
+                    <button on:click={() => toolsFilterStore.set(languages.map(v => v.name))} > Languages </button>
+                    <button on:click={() => toolsFilterStore.set(tools.map(v => v.name))} > Tools </button>
+                    <button on:click={() => toolsFilterStore.set(allTools.map(v => v.name))} > reset </button>
                 </div>
             </div>
-            {/if}
-        <!-- </Expandable> -->
+        {:else if viewedSection === 'experience'}
+        <div id='experience' transition:fade> 
+            <div class='section-container'>
+                {#each professionalExperience as xp}
+                    <button on:click={() => {
+                        if (selectedXP?.companyName === xp.companyName) {
+                            selectedXP = undefined
+                        }
+                        else {
+                            selectedXP = xp
+                            const el = document.querySelector('#expanded-xp')
+                            el.scrollIntoView({behavior: 'smooth'})
+                        }
+                    }}>
+                        {xp.companyName} 
+                    </button>
+                {/each}
+            </div>
+            <div id='expanded-xp'>
+                {#if selectedXP}
+                    <div transition:fade>
+                        <Experiece xp={selectedXP} />
+                    </div>
+                {/if}
+            </div>
+        </div>
+        {/if}
     </div>
 
 
