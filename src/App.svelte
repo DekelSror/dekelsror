@@ -1,87 +1,92 @@
 <script lang="ts">
-    import Expandable from './lib/Expandable.svelte';
     import IconGallery from './lib/IconGallery.svelte';
-
-    import { frontendTechnologies, backendTechnologies, languages, tools, professionalExperience, type ProXP } from './content';
-    import Experiece from './lib/Experiece.svelte';
+    import { frontendTechnologies, backendTechnologies, languages, tools, professionalExperience, timelinePoints } from './content';
+    import Experiece from './lib/Experience.svelte';
     import { allTools, shuffle, toolsFilterStore } from './toolsFilterStore';
     import { fade } from 'svelte/transition';
+    import links from './links';
+    import Timeline from './lib/Timeline.svelte';
 
-    let selectedXP: ProXP | undefined
-    let viewedSection: string | undefined
+    let selectedXP = 0
 </script>
 
 <main>
+    <!-- HEADER -->
     <div id='header' style='background-color:var(--color-5);color:var(--color-light)'>
         <h1>Dekel Sror</h1>
         <h3>Fullstack web dev</h3>
     </div>
 
-    <div id='hireable'  >
-        <a href='mailto: srordekel@gmail.com'> 
-            <h2 style='color: var(--color-light)' >Hire me</h2> 
-            <p style='color: var(--color-dark)'>
-                as an expert on all things and matters, I say you really should
-            </p>
-        </a>
-    </div>
+    <!-- INFO / ACTIONS CARD -->
+    <div id='hireable' >
+        <p style='color: var(--color-dark);width:50%;'>
+            this is some text about what I like and look to be doing. If by happenstance it turns out to be very long, longer
+            that one line can allow, it should also break elegantly.
+        </p>
 
-    <div id='tabs'>
-        <div>
-            <button on:click={() => viewedSection = 'skills'}> skills </button>
-            <button on:click={() => viewedSection = 'experience'}> experience </button>
+        <div style='display:flex;align-items:center;gap:2rem;padding-bottom:2rem;'>
+            <a href={links.email}> 
+                
+            </a>
+
+            <img 
+                src={links.emailLogo} 
+                alt='email logo'
+                on:keydown
+                on:click={() => window.open(links.email)}
+                style='width:3rem;height:3rem;cursor:pointer;filter:invert(100%)' 
+            >
+            
+            <img 
+                src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg' 
+                alt='WA logo' 
+                on:keydown
+                on:click={() => window.open(links.whatsapp)}
+                style='width:3rem;height:3rem;cursor:pointer;' 
+            />
         </div>
-        {#if viewedSection === 'skills'}
-            <div id='skills' transition:fade>
-                <div style='display:flex; justify-content:center' >
-                    <IconGallery tools={shuffle(allTools)} />
-                </div>
         
-                <div style='display:flex; justify-content:center' >
-                    <button on:click={() => toolsFilterStore.set(frontendTechnologies.map(v => v.name))} > FE </button>
-                    <button on:click={() => toolsFilterStore.set(backendTechnologies.map(v => v.name))} > BE </button>
-                    <button on:click={() => toolsFilterStore.set(languages.map(v => v.name))} > Languages </button>
-                    <button on:click={() => toolsFilterStore.set(tools.map(v => v.name))} > Tools </button>
-                    <button on:click={() => toolsFilterStore.set(allTools.map(v => v.name))} > reset </button>
-                </div>
-            </div>
-        {:else if viewedSection === 'experience'}
-        <div id='experience' transition:fade> 
-            <div class='section-container'>
-                {#each professionalExperience as xp}
-                    <button on:click={() => {
-                        if (selectedXP?.companyName === xp.companyName) {
-                            selectedXP = undefined
-                        }
-                        else {
-                            selectedXP = xp
-                            const el = document.querySelector('#expanded-xp')
-                            el.scrollIntoView({behavior: 'smooth'})
-                        }
-                    }}>
-                        {xp.companyName} 
-                    </button>
-                {/each}
-            </div>
-            <div id='expanded-xp'>
-                {#if selectedXP}
-                    <div transition:fade>
-                        <Experiece xp={selectedXP} />
-                    </div>
-                {/if}
-            </div>
-        </div>
-        {/if}
     </div>
 
+    <h2>EXPERIENCE</h2>
+    <div id='experience'> 
+        <button style='flex:1;' on:click={() => selectedXP = (selectedXP === 0 ? 2 : selectedXP - 1)}>{'<'}</button>
+        <div style='flex:8;'>
+                <Experiece xp={professionalExperience[selectedXP]} />
+            </div>
+        <button style='flex:1;' on:click={() => selectedXP = (selectedXP === 2 ? 0 : selectedXP + 1)}>{'>'}</button>
+    </div>
+    
+    <h2>SKILLS</h2>
+    <div id='skills' transition:fade>
+        <div style='display:flex; justify-content:center' >
+            <IconGallery tools={shuffle(allTools)} />
+        </div>
+
+        <div style='display:flex; justify-content:center' >
+            <button class='foc-button' on:click={() => toolsFilterStore.set(frontendTechnologies.map(v => v.name))} > FE </button>
+            <button class='foc-button' on:click={() => toolsFilterStore.set(backendTechnologies.map(v => v.name))} > BE </button>
+            <button class='foc-button' on:click={() => toolsFilterStore.set(languages.map(v => v.name))} > Languages </button>
+            <button class='foc-button' on:click={() => toolsFilterStore.set(tools.map(v => v.name))} > Tools </button>
+            <button class='foc-button' on:click={() => toolsFilterStore.set(allTools.map(v => v.name))} > reset </button>
+        </div>
+    </div>
+    
+    <!-- <div style='display:flex; justify-content:center' >
+        <Timeline points={timelinePoints} />
+    </div> -->
 
     <div id='footer'>
-        <button on:click={() => window.open('https://www.linkedin.com/in/dekel-sror-a36a56167/')}> LinkedIn </button>
-        <button on:click={() => window.open('https://github.com/DekelSror')}> GitHub </button>
-        <button on:click={() => window.open('https://drive.google.com/file/d/1khGT9Y4LkIgpR7ydbKE8B8eBK6bLOC-B/view?usp=drive_link')} > 
+        <button class='foc-button' on:click={() => window.open(links.linkedInProfile)}> 
+            <img style='width:3rem;height:3rem;' src={links.linkedInLogo} alt="LinkedIn Logo">
+        </button>
+        <button class='foc-button' on:click={() => window.open(links.githubProfile)}> 
+            <img style='width:3rem;height:3rem;' src={links.githubLogo} alt="GitHub logo">
+        </button>
+        <button class='foc-button' on:click={() => window.open(links.cvDriveLink)} > 
             cv (PDF) 
         </button>
-        <button on:click={() => {
+        <button class='foc-button' on:click={() => {
             const el = document.querySelector('#header')
             el.scrollIntoView({behavior: 'smooth'})
         }}> TOP 
@@ -93,14 +98,28 @@
     main {
         display: flex;
         flex-direction: column;
-        /* gap: 2rem; */
-        /* padding: 1rem 3rem 5rem 3rem; */
+        font-size: 1.3em;
     }
-    
-    .section-container {
+
+    #experience {
         display: flex;
-        gap: 1rem;
-        justify-content: center;
+        flex-direction: row;
+        flex: 10;
+        height: 5rem;
+        overflow-y: scroll;
+    }
+
+    #experience button {
+        border: unset;
+        transition: 200ms;
+        font-size: 5rem;
+        background-color: var(--color-light);
+        color: var(--color-dark);
+    }
+
+    #experience button:hover {
+        background-color: var(--color-dark);
+        color: var(--color-light);
     }
 
     #hireable {
@@ -110,17 +129,11 @@
     }
 
     #footer {
-        margin-bottom: 1rem;
-        padding: 1em;
+        padding: 1rem;
         background-color: var(--color-5);
     }
 
     #footer button {
         outline: none;
-    }
-    
-    #tabs {
-        display: flex;
-        flex-direction: column;
     }
 </style>

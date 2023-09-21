@@ -1,8 +1,7 @@
 <script lang='ts'>
-    import { fade } from "svelte/transition";
-    import type { ProXP } from "../content";
-    import Expandable from "./Expandable.svelte";
-
+    import { fade } from "svelte/transition"
+    import type { ProXP } from "../content"
+    import Expandable from "./Expandable.svelte"
     export let xp: ProXP
 
     const formatYM = (d?: Date) => {
@@ -13,23 +12,31 @@
 </script>
 
 <div class='xp-container' transition:fade>
-    <div class='xp-title-container'>
-        <div style='border: 1px solid var(--color-4); margin-bottom: 1em;' />
-        <h4> {xp.companyName} </h4>
-        <span > {xp.companyDescription} </span>
+    <h4 
+        style={xp.homepage ? 'cursor: pointer;' : 'inherit'}
+        on:click={() => {
+            if (xp.homepage) {
+                window.open(xp.homepage)
+            }
+        }} 
+        on:keydown
+    >
+        {xp.companyName} 
+    </h4>
+
+    <div style='border: 1px solid var(--color-4); margin-bottom: 1em;' />
+    <span > {xp.companyDescription} </span>
+
+    <span > {formatYM(xp.workFrom)} - {formatYM(xp.workUntil)} </span>
+    {#if xp.teamName}
+        <span> Team {xp.teamName} </span>
+    {/if}
     
-        <span > {formatYM(xp.workFrom)} - {formatYM(xp.workUntil)} </span>
-        {#if xp.teamName}
-            <span> Team {xp.teamName} </span>
-        {/if}
-    </div>
-
-    <span > What I did </span>
+    <h5 > What I did </h5>
     <span >{xp.positionDescription} </span>
-
     <div class='projects'>
         {#if xp.projects.length > 0}
-            <Expandable title={projectsExpanded ? 'close' : 'projects'} onToggle={val => projectsExpanded = val} >
+            <Expandable title={projectsExpanded ? 'close' : 'projects'} expanded={projectsExpanded} onToggle={val => projectsExpanded = val} >
                 {#each xp.projects as proj}
                     <div class='proj-container' >
                         <span >Project - {proj.name}</span>
@@ -49,6 +56,9 @@
         flex-direction: column;
         gap: 1vh;
         text-align: start;
+        background-color: var(--color-5);
+        color: var(--color-light);
+        padding: 1.5rem;
     }
 
     .projects {
@@ -65,13 +75,5 @@
         margin-bottom: 7%;
         white-space: wrap;
         overflow: hidden;
-    }
-
-    .xp-title-container {
-        background-color: var(--color-3);
-        color: var(--color-light);
-        padding: 3rem;
-        display: flex;
-        flex-direction: column;
     }
 </style>

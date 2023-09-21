@@ -26,7 +26,7 @@
 
 <style>
     .container {
-        max-width: 64%;
+        max-width: 80%;
         max-height: 64%;
         display: flex;
         flex-wrap: wrap;
@@ -34,7 +34,7 @@
     
     .item-base {
         transition: 200ms ease-in;
-        padding: 0.5em;
+        padding: 1em;
     }
 
     .item-highlighted {

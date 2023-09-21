@@ -1,3 +1,6 @@
+import type { ComponentConstructorOptions, SvelteComponent } from "svelte"
+import Experience from "./lib/Experience.svelte"
+
 const frontendTechnologies = [
     {name: 'svelte', icon: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg'},
     {name: 'react', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'},
@@ -38,8 +41,12 @@ const tools = [
     {name: 'Nginx', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg'}
 ]
 
+export type TimelinePoint = {start: Date, end: Date, name: string, shortText: string}
+
+
 export type ProXP = {
-    companyName: string, 
+    companyName: string,
+    homepage?: string 
     teamName?: string,
     workFrom: Date,
     workUntil?: Date,
@@ -52,6 +59,7 @@ export type ProXP = {
 const professionalExperience: ProXP[] = [
     {
         companyName: 'Landa Digita Printing',
+        homepage: 'https://landanano.com/',
         teamName: 'Cloud & Big Data',
         companyDescription: 'An Israeli Unicorn, Landa makes digital printing presses with nano-ink capabilities',
         workFrom: new Date(2019, 8),
@@ -73,12 +81,13 @@ const professionalExperience: ProXP[] = [
     },
     {
         companyName: 'Aquant',
+        homepage: 'https://aquant.io/',
         companyDescription: 'A fast paced startup, Aquant develops solutions for the service industry',
         teamName: 'Service Insights',
         workFrom: new Date(2021, 11),
         workUntil: new Date(2022, 8),
         tools: ['React', 'TypeScript', 'SalesForce', 'Python', 'pandas', 'MongoDB'],
-        positionDescription: 'React infrastructure, backend refactoring and salesforce integration',
+        positionDescription: 'React infrastructure, backend refactoring and CRM integration',
         projects: [
             {
                 name: 'Cross platform event tracking',
@@ -102,4 +111,13 @@ const professionalExperience: ProXP[] = [
     }
 ]
 
-export {frontendTechnologies, backendTechnologies, tools, languages, professionalExperience}
+const timelinePoints: TimelinePoint[] = [
+    {start: new Date(2013, 0), name: 'musician', end: new Date(2018, 0), shortText: 'Musician and music producer'},
+    {start: new Date(2019, 2), name: 'infinity', end: new Date(2019, 8), shortText: 'Infinity Labs R&D'},
+    {start: new Date(2019, 8), name: 'landa', end: new Date(2021, 7), shortText: 'Landa Digital Printing'},
+    {start: new Date(2021, 11), name: 'aqaunt', end: new Date(2022, 8), shortText: 'Aquant'},
+    {start: new Date(2023, 5), name: 'cactus', end: new Date(2023, 8), shortText: 'Cactus Group'},
+]
+
+
+export {frontendTechnologies, backendTechnologies, tools, languages, professionalExperience, timelinePoints}

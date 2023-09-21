@@ -12,14 +12,13 @@
 
 
 <div class='expandable'>
-    <button class='controls' on:click={() => {
-        expanded = !expanded
-
-        if (onToggle) {
-            onToggle(!expanded)
-        }
-    }}
-        on:keypress
+    <button 
+        class='controls foc-button' 
+        on:click={() => {
+            if (onToggle) onToggle(!expanded)
+            
+            expanded = !expanded
+        }}
     >
         <h4 style='margin: unset'> {title} </h4>
         <img class={expanded ? 'caret' : 'caret caret-up'} src={ArrowDropUp} alt='' />

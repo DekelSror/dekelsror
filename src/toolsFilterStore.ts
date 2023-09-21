@@ -21,9 +21,3 @@ export const toolsFilterStore = writable(
     allTools.map(t => t.name)
 )
 
-// export const resetToolsStore = () => {
-//     toolsFilterStore.set(shuffle(allTools.map(tool => ({name: tool.name, highlighted: false}))))
-// }
-
-
-
