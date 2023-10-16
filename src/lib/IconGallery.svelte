@@ -18,7 +18,7 @@
                 src={tool.icon} 
                 alt={tool.name}
             >
-            <span class='label'> {tool.name} </span>
+            <span> {tool.name} </span>
         </div>
     {/each}
 </div>
@@ -54,14 +54,10 @@
     .icon-small {
         transform: scale(0.6);
     }
-
-    .item-blurred {
-        filter: contrast(0.2) blur(2px);
-    }
-
+    
     .item-base span {
-        color: white;
-        background-color: #44444444;
+        color: var(--color-light);
+        background-color: var(--color-dark);
         border-radius: 1dvh;
         padding: 0.5em;
         z-index: 1;
@@ -75,8 +71,17 @@
     }
 
     .item-base:hover span {
-        filter: drop-shadow(1px 1px 10px #000);
+        filter: drop-shadow(1px 1px 10px var(--color-dark));
         visibility: visible;
         opacity: 1;
     }
+    
+        .item-blurred {
+            filter: contrast(0.2) blur(2px);
+        }
+    
+        .item-blurred:hover span {
+            visibility: hidden;
+            background-color: var(--color-4);
+        }
 </style>
