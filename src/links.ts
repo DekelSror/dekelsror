@@ -1,7 +1,7 @@
 
 
 const links = {
-    linkedInProfile: 'https://www.linkedin.com/in/dekel-sror-a36a56167/',
+    linkedInProfile: 'https://www.linkedin.com/in/dekel-sror',
     githubProfile: 'https://github.com/DekelSror',
     cvDriveLink: 'https://drive.google.com/file/d/1khGT9Y4LkIgpR7ydbKE8B8eBK6bLOC-B/view?usp=drive_link',
     whatsapp: encodeURI('https://wa.me/972524052221?text=hi Dekel, I saw your porftolio and was blown away'),
