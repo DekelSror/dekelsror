@@ -13,14 +13,15 @@
 
 <div class='expandable'>
     <button 
-        class='controls foc-button' 
+        class='controls' 
         on:click={() => {
             if (onToggle) onToggle(!expanded)
             
             expanded = !expanded
         }}
     >
-        <h4 style='margin: unset'> {title} </h4>
+        <h2 class={expanded ? 'title title-small' : 'title'} style='margin: unset'> {title} </h2>
+        
         <img class={expanded ? 'caret' : 'caret caret-up'} src={ArrowDropUp} alt='' />
     </button>
 
@@ -43,6 +44,14 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        border: unset;
+    }
+
+    .title {
+        transition: transform 300ms;
+    }
+    .title-small {
+        transform: scale(0.5);
     }
 
     .caret {

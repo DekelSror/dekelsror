@@ -1,6 +1,3 @@
-import type { ComponentConstructorOptions, SvelteComponent } from "svelte"
-import Experience from "./lib/Experience.svelte"
-
 const frontendTechnologies = [
     {name: 'svelte', icon: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg'},
     {name: 'react', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'},
@@ -102,7 +99,7 @@ const professionalExperience: ProXP[] = [
         ]
     },
     {
-        companyName: 'Cactus Group',
+        companyName: 'Freelace Software Developer',
         companyDescription: 'A newborn startup that develops consumer AI solution for content generation',
         workFrom: new Date(2023, 5),
         tools: ['React', 'Typescript', 'Auth0', 'Vercel', 'openai'],
