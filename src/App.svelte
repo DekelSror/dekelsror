@@ -13,6 +13,8 @@
         <h3>Full Stack Engineer</h3>
     </div>
 
+    
+
     <!-- INFO / ACTIONS CARD -->
     <div id='hireable' >
         <p style='color: var(--color-dark);width:50%;'>
@@ -44,12 +46,12 @@
     </div>
     
     <div id='skills'>
-        <Expandable 
+        <Expandable
             title='SKILLS' 
             onToggle={expanded => {
                 if (expanded)
                 {
-                    
+
                 }
                 else
                 {
@@ -83,7 +85,7 @@
         <button class='foc-button' on:click={() => {
             const el = document.querySelector('#header')
             el.scrollIntoView({behavior: 'smooth'})
-        }}> TOP 
+        }}> TOP
         </button>
     </div>
 </main>
