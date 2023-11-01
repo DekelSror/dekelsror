@@ -1,15 +1,14 @@
 <script lang="ts">
     import IconGallery from './lib/IconGallery.svelte';
-    import { frontendTechnologies, backendTechnologies, languages, tools, professionalExperience, timelinePoints } from './content';
+    import { frontendTechnologies, backendTechnologies, languages, tools } from './content';
     import { allTools, shuffle, toolsFilterStore } from './toolsFilterStore';
-    import { fade } from 'svelte/transition';
     import links from './links';
-  import Expandable from './lib/Expandable.svelte';
+    import Expandable from './lib/Expandable.svelte';
 </script>
 
 <main>
     <!-- HEADER -->
-    <div id='header' style='background-color:var(--color-5);color:var(--color-light)'>
+    <div id='header' style='background-color:var(--color-6);color:var(--color-light)'>
         <h1>Dekel Sror</h1>
         <h3>Full Stack Engineer</h3>
     </div>
@@ -31,7 +30,7 @@
                 alt='email logo'
                 on:keydown
                 on:click={() => window.open(links.email)}
-                style='width:3rem;height:3rem;cursor:pointer;filter:invert(100%)' 
+                style='width:3rem;height:3rem;cursor:pointer;filter:invert(100%)'
             >
             
             <img 
@@ -42,7 +41,6 @@
                 style='width:3rem;height:3rem;cursor:pointer;' 
             />
         </div>
-        
     </div>
     
     <div id='skills'>
@@ -51,7 +49,7 @@
             onToggle={expanded => {
                 if (expanded)
                 {
-
+                    
                 }
                 else
                 {
@@ -70,7 +68,6 @@
                 </div>
             </div>
         </Expandable>
-
     </div>
 
     <div id='footer'>
@@ -99,7 +96,7 @@
     }
 
     #hireable {
-        background-color: var(--color-3); 
+        background-color: var(--color-2); 
         text-align: start;
         padding: 0 5rem 0 5rem;
     }
@@ -111,10 +108,12 @@
 
     #footer {
         padding: 1rem;
-        background-color: var(--color-5);
+        background-color: var(--color-6);
     }
 
     #footer button {
         outline: none;
+        height: 4rem;
+        contain: content;
     }
 </style>
