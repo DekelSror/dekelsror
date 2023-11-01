@@ -55,6 +55,7 @@ h2 {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  background-color: white;
   color: var(--color-dark);
   cursor: pointer;
   transition: 100ms ease-in;
@@ -68,15 +69,3 @@ h2 {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--color-dark);
-    background-color: var(--color-light);
-  }
-  a:hover {
-    color: var(--color-1);
-  }
-  button {
-    background-color: var(--color-light);
-  }
-}
