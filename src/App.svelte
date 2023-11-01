@@ -8,12 +8,12 @@
 
 <main>
     <!-- HEADER -->
-    <div id='header' style='background-color:var(--color-6);color:var(--color-light)'>
+    <div id='header' style='background-color:var(--color-6);color:white'>
         <h1>Dekel Sror</h1>
         <h3>Full Stack Engineer</h3>
     </div>
 
-    
+
 
     <!-- INFO / ACTIONS CARD -->
     <div id='hireable' >

@@ -3,9 +3,6 @@
 
     export let tools: {name: string, icon: string}[]
 
-    // get the tools from parent
-    // get the highlighted from store
-    
     const randInt = (range: number) => Math.floor(Math.random() * 999999) % range
 </script>
 
@@ -56,7 +53,7 @@
     }
     
     .item-base span {
-        color: var(--color-light);
+        color: white;
         background-color: var(--color-dark);
         border-radius: 1dvh;
         padding: 0.5em;
@@ -76,12 +73,12 @@
         opacity: 1;
     }
     
-        .item-blurred {
-            filter: contrast(0.2) blur(2px);
-        }
-    
-        .item-blurred:hover span {
-            visibility: hidden;
-            background-color: var(--color-4);
-        }
+    .item-blurred {
+        filter: contrast(0.2) blur(2px);
+    }
+
+    .item-blurred:hover span {
+        visibility: hidden;
+        background-color: var(--color-4);
+    }
 </style>
