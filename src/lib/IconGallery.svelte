@@ -23,11 +23,12 @@
 
 <style>
     .container {
-        max-width: 80%;
-        max-height: 64%;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
+
     
     .item-base {
         transition: 200ms ease-in;
@@ -39,9 +40,20 @@
     }
 
     .icon-base {
-        width: 6rem;
-        height: 6rem;
+        width: 4rem;
+        height: 4rem;
         transition: transform 400ms;
+    }
+
+    @media (max-width: 600px) {
+        .item-base {
+            padding: 0.2em;
+        }
+        .icon-base {
+            width: 3rem;
+            height: 3rem;
+            padding: 0;
+        }
     }
 
     .icon-medium {

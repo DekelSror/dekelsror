@@ -1,1 +1,1 @@
-Code for portfolio site at http://dekelsror.com
+Code for portfolio site at dekelsror.com

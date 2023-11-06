@@ -17,7 +17,7 @@
 
     <!-- INFO / ACTIONS CARD -->
     <div id='hireable' >
-        <p style='color: var(--color-dark);width:50%;'>
+        <p style='color: var(--color-dark);'>
             this is some text about what I like and look to be doing. If by happenstance it turns out to be very long, longer
             that one line can allow, it should also break elegantly.
         </p>
@@ -61,23 +61,23 @@
         >
             <div style='display:flex; flex-direction: column; align-items:center' >
                 <IconGallery tools={shuffle(allTools)} />
-                <div style='display:flex; justify-content:center' >
+                <!-- <div style='display:flex; justify-content:center' >
                     <button class='foc-button' on:click={() => toolsFilterStore.set(frontendTechnologies.map(v => v.name))} > FE </button>
                     <button class='foc-button' on:click={() => toolsFilterStore.set(backendTechnologies.map(v => v.name))} > BE </button>
                     <button class='foc-button' on:click={() => toolsFilterStore.set(languages.map(v => v.name))} > Languages </button>
                     <button class='foc-button' on:click={() => toolsFilterStore.set(tools.map(v => v.name))} > Tools </button>
                     <button class='foc-button' on:click={() => toolsFilterStore.set(allTools.map(v => v.name))} > reset </button>
-                </div>
+                </div> -->
             </div>
         </Expandable>
     </div>
 
     <div id='footer'>
         <button class='foc-button' on:click={() => window.open(links.linkedInProfile)}> 
-            <img style='width:3rem;height:3rem;' src={links.linkedInLogo} alt="LinkedIn Logo">
+            <img class='footer-img' src={links.linkedInLogo} alt="LinkedIn Logo">
         </button>
         <button class='foc-button' on:click={() => window.open(links.githubProfile)}> 
-            <img style='width:3rem;height:3rem;' src={links.githubLogo} alt="GitHub logo">
+            <img class='footer-img' src={links.githubLogo} alt="GitHub logo">
         </button>
         <button class='foc-button' on:click={() => window.open(links.cvDriveLink)} > 
             cv (PDF) 
@@ -94,13 +94,35 @@
     main {
         display: flex;
         flex-direction: column;
-        font-size: 1.3em;
     }
 
     #hireable {
         background-color: var(--color-2); 
         text-align: start;
         padding: 0 5rem 0 5rem;
+    }
+    
+    #hireable p {
+        width: 50%;
+    }
+    
+    @media (max-width: 600px) {
+        #hireable {
+            padding: 0 3rem 0 3rem;
+        }
+        #hireable p {
+            width: auto;
+        }
+
+        .footer-img {
+            height: 2rem;
+            width: 2rem;
+        }
+
+        #footer {
+            padding: 0.5rem;
+            gap: 0.5em;
+        }
     }
 
     #skills {
@@ -111,11 +133,20 @@
     #footer {
         padding: 1rem;
         background-color: var(--color-6);
+        display: flex;
+        flex: 4;
+        gap: 1em;
+        justify-content: center;
     }
 
     #footer button {
-        outline: none;
-        height: 4rem;
-        contain: content;
+        padding: unset;
+        flex: 1;
     }
+    
+    .footer-img {
+        height: 3rem;
+        width: 3rem;
+    }
+
 </style>
