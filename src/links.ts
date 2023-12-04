@@ -3,7 +3,7 @@
 const links = {
     linkedInProfile: 'https://www.linkedin.com/in/dekel-sror',
     githubProfile: 'https://github.com/DekelSror',
-    cvDriveLink: 'https://drive.google.com/file/d/1_rLBbMlU0FsXTtgQPDiPz5CV6UaoO5bW/view?usp=sharing',
+    cvDriveLink: 'https://drive.google.com/file/d/1gBFXoAUuXvsVfdB9kIzRcszk7Js-VPVM/view?usp=drive_link',
     whatsapp: encodeURI('https://wa.me/972524052221?text=hi Dekel, I saw your porftolio and was blown away'),
     linkedInLogo: 'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg',
     githubLogo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg',
